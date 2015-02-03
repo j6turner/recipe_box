@@ -2,34 +2,39 @@
 <h1><strong><%= @recipe.name %></strong> Recipe</h1>
 
 <div class="left">
+
   <h3>Add Ingredients</h3>
-<form action="/ingredients/<%= @recipe.id() %>" method="post">
 
-  <input name="ingredients" type="text" placeholder="Butter">
-   <button type="submit" class="btn btn-success">Add Ingredient</button>
- </form>
+    <form action="/ingredients/<%= @recipe.id() %>" method="post">
+      <input name="ingredients" type="text" placeholder="Butter">
+      <button type="submit" class="btn btn-success">Add Ingredient</button>
+    </form>
 
- <ul>
-   <% @allingredients.each() do |newingredient| %>
-   <li><%= newingredient.ingredients() %></li>
-   <% end %>
- </ul>
+    <ul>
+      <% @allingredients.each() do |newingredient| %>
+        <li><%= newingredient.ingredients() %></li>
+      <% end %>
+    </ul>
 
 </div>
 
 <div class="right">
+
   <h3>Add Instructions</h3>
-<form action="/instructions/<%= @recipe.id() %>" method="post">
-   <input name="instructions" type="text" placeholder="Cut into small pieces.">
-   <button type="submit" class="btn btn-success">Add Instruction</button>
- </form>
 
- <ol>
-   <% @allrecipes.each() do |recipe| %>
-   <li><%= recipe.instructions() %></li>
-   <% end %>
- </ol>
+    <form action="/instructions/<%= @recipe.id() %>" method="post">
+      <input name="instructions" type="text" placeholder="Cut into small pieces.">
+      <button type="submit" class="btn btn-success">Add Instruction</button>
+    </form>
 
- </div>
+    <ul>
+      <% @allrecipes.each() do |recipe| %>
+        <li><%= recipe.instructions() %></li>
+      <% end %>
+    </ul>
 
- <a href="/">Back to Recipes</a>
+</div>
+This recipe's instructions:
+<%= @recipe.instructions() %>
+
+<a href="/">Back to Recipes</a>

@@ -35,9 +35,11 @@ get('/ingredients') do
 end
 
 post('/instructions/:id') do
+  id = params.fetch('id').to_i()
+  found_recipe = Recipe.find(params.fetch('id').to_i())
   instructions = params.fetch('instructions')
-  @newinstruction = Recipe.create({:instructions => instructions})
-  redirect('/')
+  found_recipe.update({:instructions => instructions})
+  redirect("/recipes/#{id}")
 end
 
 get('/instructions') do
