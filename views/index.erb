@@ -1,17 +1,17 @@
-<h1>Add a Recipe</h1>
+<h1>Add a Category</h1>
 
-<form action='/recipes' method='post'>
-  <label for='name'>Recipe Name</label>
-  <input id='name' name='name' type='text'>
-  <button type="submit" class="btn btn-success">Create Recipe</button>
+<form action='/category' method='post'>
+  <label for='name'>Category Name</label>
+  <input id='name' name='name' type='text' placeholder="Italian">
+  <button type="submit" class="btn btn-success">Add category</button>
 </form>
 
 <ul>
-  <% if @allrecipes.any?() %>
-  <% @allrecipes.each() do |recipe| %>
-  <li><a href="/recipes/<%= recipe.id() %>"><%= recipe.name() %></a></li>
+  <% if @allcategories.any?() %>
+  <% @allcategories.each() do |category| %>
+  <li><a href="/categories/<%= category.id() %>"><%= category.name() %></a></li>
   <% end %>
   <% else %>
-  <%= "We're hungry!!!" %>
+  <%= "No categories yet" %>
   <% end %>
 </ul>
