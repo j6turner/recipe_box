@@ -1,40 +1,14 @@
-
 <h1><strong><%= @recipe.name %></strong> Recipe</h1>
-
 <div class="left">
-
-  <h3>Add Ingredients</h3>
-
-    <form action="/ingredients/<%= @recipe.id() %>" method="post">
-      <input name="ingredients" type="text" placeholder="Butter">
-      <button type="submit" class="btn btn-success">Add Ingredient</button>
-    </form>
-
-    <ul>
-      <% @allingredients.each() do |newingredient| %>
-        <li><%= newingredient.ingredients() %></li>
-      <% end %>
-    </ul>
-
 </div>
 
 <div class="right">
-
-  <h3>Add Instructions</h3>
-
-    <form action="/instructions/<%= @recipe.id() %>" method="post">
-      <input name="instructions" type="text" placeholder="Cut into small pieces.">
-      <button type="submit" class="btn btn-success">Add Instruction</button>
-    </form>
-
-    <ul>
-      <% @allrecipes.each() do |recipe| %>
-        <li><%= recipe.instructions() %></li>
-      <% end %>
-    </ul>
-
+<h3>Add Instructions</h3>
+  <form action="/instructions" method="post">
+    <input type="hidden" name="id" value="<%= @recipe.id() %>">
+    <input name="description" type="text" placeholder="Cut into small pieces.">
+    <button type="submit" class="btn btn-success">Add Instruction</button>
+  </form>
 </div>
-This recipe's instructions:
-<%= @recipe.instructions() %>
 
 <a href="/">Back to Recipes</a>

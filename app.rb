@@ -1,49 +1,50 @@
 require("bundler/setup")
 Bundler.require(:default)
+require("pry")
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 get('/') do
-  @allrecipes = Recipe.all()
+  @allcategories = Category.all()
   erb(:index)
 end
 
-post('/recipes') do
-  name = params.fetch('name')
-  @newrecipe = Recipe.create({:name => name})
-  redirect('/')
+post('/category') do
+  category_name = params['category_name']
+  Category.create({:name => category_name})
+  redirect("/")
 end
 
-get('/recipes/:id') do
-  @recipe = Recipe.find(params.fetch("id").to_i())
+get('/categories/:id') do
+  @category = Category.find(params["id"].to_i())
+  @recipes = Recipe.all()
+  erb(:categories)
+end
+
+post('/recipe') do
+  recipe_name = params['recipe_name']
+  category_id = params['category_id']
+  Recipe.create({:name => recipe_name, :category_ids => [category_id]})
+  redirect "/categories/#{category_id}"
+end
+
+
+get('/categories/:id/recipes/:id') do
+  @recipe = Recipe.find(params["recipe_id"].to_i())
   @allrecipes = Recipe.all()
-  @allingredients = @recipe.ingredients()
   erb(:recipes)
 end
 
-post('/ingredients/:id') do
-  ingredients = params.fetch('ingredients')
-  recipe_id = params.fetch("id").to_i()
-  @newingredient = Ingredient.create({:ingredients => ingredients, :recipe_id => recipe_id})
-  redirect("/recipes/#{recipe_id}")
-end
+# post('/ingredients/:id') do
+#   ingredients = params.fetch('ingredients')
+#   recipe_id = params.fetch("id").to_i()
+#   @newingredient = Ingredient.create({:ingredients => ingredients, :recipe_id => recipe_id})
+#   redirect "/categories/#{category_id}/recipes/#{recipe_id}"
+# end
 
-get('/ingredients') do
-  @allingredients = Ingredient.all()
-  recipe_id = Recipe.find(params.fetch("id").to_i())
-  erb(:recipes)
-end
-
-post('/instructions/:id') do
-  id = params.fetch('id').to_i()
-  found_recipe = Recipe.find(params.fetch('id').to_i())
-  instructions = params.fetch('instructions')
-  found_recipe.update({:instructions => instructions})
-  redirect("/recipes/#{id}")
-end
-
-get('/instructions') do
-  @allrecipes = Recipe.all()
-  recipe_id = Recipe.find(params.fetch("id").to_i())
-  erb(:recipes)
+post('/instructions') do
+  description = params['description']
+  recipe_id = params['recipe_id']
+  Instruction.create({:description => description, :recipe_id => recipe_id})
+  redirect "/categories/#{category_id}/recipes/#{recipe_id}"
 end
