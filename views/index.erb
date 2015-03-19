@@ -2,13 +2,13 @@
 
 <form action='/category' method='post'>
     <label for='name'>Create a category</label>
-    <input name='category_name' type='text' placeholder="Italian">
-  <button type="submit" class="btn btn-success">Add category</button>
+    <input id="category" name='category_name' type='text' placeholder=" Italian">
+  <button type="submit" class="btn btn-success">Add Category</button>
 </form>
 
 <ul>
-  <% if @allcategories.any?() %>
-  <% @allcategories.each() do |category| %>
+  <% if @categories.any?() %>
+  <% @categories.each() do |category| %>
   <li><a href="/categories/<%= category.id() %>"><%= category.name() %></a></li>
   <% end %>
   <% else %>

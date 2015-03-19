@@ -3,7 +3,7 @@
 
   <h3>Add Instructions</h3>
     <form action="/instructions" method="post">
-      <textarea id="instructions" name="description" type="text" placeholder="Cut into small pieces." rows="10" cols="40">
+      <textarea id="instructions" name="description" type="text" placeholder=" Cut into small pieces." rows="10" cols="40">
       </textarea>
         <input type="hidden" name="recipe_id" value="<%= @recipe.id() %>">
         <div class="form-group">
@@ -25,9 +25,22 @@
 </div>
 
 <div class="right">
-  <h3>Add Igredients</h3>
-  <form>
-    <input id="ingredients">
-    <button class="btn btn-success">Add Ingredients</button>
-  </form>
+  <h3>Add Ingredients</h3>
+    <form action="/ingredients" method="post">
+      <input id="ingredients" name="name" type="text" placeholder=" Sugar" />
+        <input type="hidden" name="recipe.ingredients" value="<%= id() %>">
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Add Ingredient</button>
+      </div>
+    </form>
+
+  <ol>
+    <% if @recipe.ingredients.any?() %>
+      <% @recipe.ingredients.each() do |ingredient| %>
+        <li><%= ingredient.name() %></li>
+      <% end %>
+    <% else %>
+      <%= "No ingredients yet" %>
+    <% end %>
+  </ol>
 </div>

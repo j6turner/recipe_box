@@ -5,6 +5,16 @@
   float: right;
 }
 
+#category {
+  border: 2px solid #000000;
+  border-radius: 20px;
+}
+
+#recipe {
+  border: 2px solid #000000;
+  border-radius: 20px;
+}
+
 #instructions {
   height: 200px;
   border: 2px solid #000000;
@@ -14,4 +24,10 @@
 #ingredients {
   border: 2px solid #000000;
   border-radius: 20px;
+}
+
+.btn:hover {
+  font-family: Helvetica;
+  color: #5cb85c;
+  background-color: #FFFFFF;
 }

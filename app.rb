@@ -5,7 +5,7 @@ require("pry")
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 get('/') do
-  @allcategories = Category.all()
+  @categories = Category.all()
   erb(:index)
 end
 
@@ -33,16 +33,18 @@ get('/categories/:id/recipes/:id') do
   @recipe = Recipe.find(params["id"].to_i())
   @instructions = Instruction.all()
   @recipes = Recipe.all()
-  @allcategories = Category.all()
+  @ingredients = Ingredient.all()
+binding.pry
   erb(:recipes)
 end
 
-# post('/ingredients/:id') do
-#   ingredients = params.fetch('ingredients')
-#   recipe_id = params.fetch("id").to_i()
-#   @newingredient = Ingredient.create({:ingredients => ingredients, :recipe_id => recipe_id})
-#   redirect "/categories/#{category_id}/recipes/#{recipe_id}"
-# end
+post('/ingredients') do
+  name = params['name']
+  recipe_id = params['recipe_id']
+  Ingredient.create({:name => name})
+  recipe.ingredients << ingredient
+  redirect back
+end
 
 post('/instructions') do
   description = params['description']
