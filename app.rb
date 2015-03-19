@@ -30,8 +30,10 @@ end
 
 
 get('/categories/:id/recipes/:id') do
-  @recipe = Recipe.find(params["recipe_id"].to_i())
-  @allrecipes = Recipe.all()
+  @recipe = Recipe.find(params["id"].to_i())
+  @instructions = Instruction.all()
+  @recipes = Recipe.all()
+  @allcategories = Category.all()
   erb(:recipes)
 end
 
@@ -46,5 +48,5 @@ post('/instructions') do
   description = params['description']
   recipe_id = params['recipe_id']
   Instruction.create({:description => description, :recipe_id => recipe_id})
-  redirect "/categories/#{category_id}/recipes/#{recipe_id}"
+  redirect back
 end
