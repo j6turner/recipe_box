@@ -27,6 +27,10 @@ Tests for Ruby methods can be run using the RSpec gem.
 
 To practice the following: creating classes and methods, using Active Record, handling many-to-many relationships, using postgres databases.
 
+##Known Bugs
+
+As of 2015-03-22, the recipes_ingredients relationship had yet to be fully articulated in the app.rb.
+
 ##License
 
-MIT License. Copyright 2015. Authors: _Carli Martinez_ and _J. TURNER_
+MIT License. Copyright 2015. Authors: **Carli Martinez** and **J. TURNER**
