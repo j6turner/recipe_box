@@ -1,7 +1,7 @@
 ##Recipe Organizer
 Stores and lists recipes with ingredients, ingredient amount, and instructions, organized by categories created by the user.
 
-Ruby version 2.2
+Ruby v.2.2.0
 
 ##Project Setup
 
@@ -12,20 +12,19 @@ Ruby version 2.2
 5.   `bundle`
 6. in a separate tab in the terminal, enter 'postgres'
     run rake db:create in project folder, and then rake db:migrate
-7.   `ruby app.rb`
-
-8. go to https://localhost:4567 in web browser
+7. `ruby app.rb`
+8. navigate to https://localhost:4567 in a Web browser
 
 ##Tests
 
-tests for ruby methods can be run using the rspec gem
+tests for ruby methods can be run using the RSpec gem
 
 `gem install rspec`
 `rspec`
 
 ##Motivation
 
-To practice creating a Ruby class and methods, Active Record, many-to-many relationships, using postgres databases.
+To practice the following: creating classes and methods, using Active Record, handling many-to-many relationships, using postgres databases.
 
 ##License
 
