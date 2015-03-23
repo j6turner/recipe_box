@@ -18,7 +18,7 @@ Ruby v.2.2.0
 
 ##Tests
 
-tests for ruby methods can be run using the RSpec gem
+Tests for Ruby methods can be run using the RSpec gem.
 
 `gem install rspec`
 `rspec`
@@ -29,4 +29,4 @@ To practice the following: creating classes and methods, using Active Record, ha
 
 ##License
 
-MIT License. Copyright 2015. Created by Carli Martinez and J. TURNER
+MIT License. Copyright 2015. Authors: _Carli Martinez_ and _J. TURNER_
