@@ -3,17 +3,18 @@ Stores and lists recipes with ingredients, ingredient amount, and instructions, 
 
 Ruby v.2.2.0
 
-##Project Setup
+##Project Setup (in the project directory)
 
 1. `gem install bundler`
 2. `gem install sinatra-activerecord`
 3. `gem install rake`
 4. `gem install bundler`
-5.   `bundle`
-6. in a separate tab in the terminal, enter 'postgres'
-    run rake db:create in project folder, and then rake db:migrate
-7. `ruby app.rb`
-8. navigate to https://localhost:4567 in a Web browser
+5. `bundle`
+6. in a separate tab in the terminal, enter `postgres`
+7. `rake db:create`
+8. `rake db:migrate`
+9. `ruby app.rb`
+10. navigate to *https://localhost:4567* in a Web browser
 
 ##Tests
 
