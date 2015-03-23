@@ -3,6 +3,15 @@ Stores and lists recipes with ingredients, ingredient amount, and instructions, 
 
 Ruby v.2.2.0
 
+##Databases
+
+```
+recipe_development
+```
+```
+recipe_test
+```
+
 ##Project Setup (in the project directory)
 
 1. `gem install bundler`
@@ -19,9 +28,12 @@ Ruby v.2.2.0
 ##Tests
 
 Tests for Ruby methods can be run using the RSpec gem.
-
-`gem install rspec`
-`rspec`
+```
+gem install rspec
+```
+```
+rspec
+```
 
 ##Motivation
 
